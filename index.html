@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PaintJS</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+        crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="canvas-container">
+            <canvas id="canvas" width="800px" height="600px"></canvas>
+        </div>
+        <aside id="tools-container">
+            <div class="colors" role="group">
+                <b>Colors</b>
+                <br />
+                <button id="color-black" class="custom-button"></button>
+                <button id="color-white" class="custom-button"></button>
+                <button id="color-gray" class="custom-button"></button>
+                <button id="color-red" class="custom-button"></button>
+                <button id="color-blue" class="custom-button"></button>
+                <button id="color-orange" class="custom-button"></button>
+                <button id="color-yellow" class="custom-button"></button>
+                <button id="color-green" class="custom-button"></button>
+                <button id="color-purple" class="custom-button"></button>
+                <button id="color-pink" class="custom-button"></button>
+                <button id="color-picker" class="jscolor"></button>
+            </div>
+            <div class="tools">
+                <b>Tools</b>
+                <br />
+                <button id="pencil" class="custom-button"></button>
+                <button id="eraser" class="custom-button"></button>
+                <button id="paint" class="custom-button"></button>
+                <button id="brush" class="custom-button"></button>
+            </div>
+            <div class="shapes">
+                <b>Shapes</b>
+                <br />
+                <button id="triangle" class="custom-button"></button>
+                <button id="circle" class="custom-button"></button>
+                <button id="square" class="custom-button"></button>
+                <button id="rectangle" class="custom-button"></button>
+            </div>
+        </aside>
+    </div>
+    <script src="jscolor-2.0.4/jscolor.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

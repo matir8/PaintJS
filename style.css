@@ -1,0 +1,109 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#canvas {
+    background-color: white;
+    border: 1px solid black;
+    display: block;
+    margin-left: 150px;
+    margin-top: 3px;
+    position: absolute;
+}
+
+#tools-container {
+    width: 140px;
+    margin: 3px;
+    float: left;
+    background-color: lightgrey;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.custom-button {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
+#color-red {
+    background-color: red;
+}
+
+#color-green {
+    background-color: green;
+}
+
+#color-black {
+    background-color: black;
+}
+
+#color-white {
+    background-color: white;
+}
+
+#color-gray {
+    background-color: gray;
+}
+
+#color-orange {
+    background-color: orange;
+}
+
+#color-yellow {
+    background-color: yellow;
+}
+
+#color-blue {
+    background-color: blue;
+}
+
+#color-purple {
+    background-color: purple; 
+}
+
+#color-pink {
+    background-color: pink;
+}
+
+#color-picker {
+    margin-top: 3px;
+}
+
+
+
+#pencil {
+    background: url('icons/Pencil-icon.png')
+}
+
+#paint {
+    background: url('icons/Paint-icon.png')
+}
+
+#eraser {
+    background: url('icons/Eraser-icon.png')
+}
+
+#brush {
+    background: url('icons/Brush-icon.png')
+}
+
+#circle {
+    background: url('icons/Circle-icon.png')
+}
+
+#triangle {
+    background: url('icons/Triangle-icon.png');
+    background-repeat: no-repeat;
+}
+
+#rectangle {
+    background: url('icons/Rectangle-icon.png')
+}
+
+#square {
+    background: url('icons/Square-icon.png')
+}
