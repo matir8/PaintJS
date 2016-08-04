@@ -39,6 +39,10 @@ body {
     margin-bottom: 3px;
 }
 
+.pencil-cursor {
+    cursor: url('icons/Pencil-icon.png') 0 15, move;
+}
+
 #red {
     background-color: red;
 }

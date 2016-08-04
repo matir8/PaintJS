@@ -8,6 +8,7 @@ var $wrapper = $('.wrapper'),
     color = 'black',
     rectSelect = false,
     circleSelect = false,
+    pencilSelect = false,
     x1,
     y1,
     x2,
@@ -21,11 +22,22 @@ function setColor(id) {
 $tools.on('click', '#rectangle', function (ev) {
     rectSelect = true;
     circleSelect = false;
+    pencilSelect = false;
+    $(tempcanvas).removeClass('pencil-cursor');
 });
 
 $tools.on('click', '#circle', function (ev) {
     rectSelect = false;
     circleSelect = true;
+    pencilSelect = false;
+    $(tempcanvas).removeClass('pencil-cursor');
+});
+
+$tools.on('click', '#pencil', function (ev) {
+    rectSelect = false;
+    circleSelect = false;
+    pencilSelect = true;
+    $(tempcanvas).addClass('pencil-cursor');
 });
 
 $(tempcanvas).on('mousedown', function (ev) {
@@ -55,6 +67,16 @@ $(tempcanvas).on('mousemove', function (event) {
 
             ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
             ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
+        }
+
+        if (pencilSelect) {
+            let rect = tempcanvas.getBoundingClientRect(),
+                endX = event.pageX - rect.left,
+                endY = event.pageY - rect.top;
+
+            drawWithPencil(x1, y1, endX, endY, color);
+            x1 = endX;
+            y1 = endY;
         }
     }
 });
@@ -97,4 +119,14 @@ function drawEllipse(x1, y1, x2, y2, color) {
     ctx.closePath();
     ctx.strokeStyle = color;
     ctx.stroke();
+}
+
+function drawWithPencil(x1, y1, x2, y2, color) {
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+
 }
