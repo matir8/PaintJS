@@ -98,6 +98,15 @@ function drawRect(x, y, width, height, color) {
     ctx.strokeRect(x, y, width, height);
 }
 
+$('#color-picker').on('change', function () { 
+    let $this = $(this),
+        value = $this.val();
+        color = '#' + value;
+    
+    $this.val(color);
+
+ });
+
 function drawEllipse(x1, y1, x2, y2, color) {
     var radiusX = (x2 - x1) * 0.5,
         radiusY = (y2 - y1) * 0.5,
