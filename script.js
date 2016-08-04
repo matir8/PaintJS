@@ -3,6 +3,7 @@ var $wrapper = $('.wrapper'),
     $tools = $('#tools-container'),
     canvas = document.getElementById('canvas'),
     ctx = canvas.getContext('2d'),
+    color = 'black',
     rectSelect = false,
     mouseDown = false;
 
@@ -10,6 +11,9 @@ $tools.on('click', '#rectangle', function (ev) {
     rectSelect = true;
 });
 
+function setColor(id) {
+    color = id;
+}
 
 $(canvas).on('mousedown', function (ev) {
     mouseDown = true;
@@ -22,12 +26,12 @@ $(canvas).on('mousedown', function (ev) {
                     endY = event.pageY - findPos(this).y,
                     width = endX - startX,
                     height = endY - startY;
-                drawRect(startX, startY, width, height, "black");
+                drawRect(startX, startY, width, height, color);
             }
         });
     }
-            
-    });
+
+});
 
 $(canvas).on('mouseup', function (ev) {
     mouseDown = false;
@@ -36,7 +40,7 @@ $(canvas).on('mouseup', function (ev) {
 function drawRect(x, y, width, height, color) {
     var canvasWidth = canvas.width,
         canvasHeight = canvas.height;
-    
+
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     ctx.strokeStyle = color;
     ctx.beginPath();
