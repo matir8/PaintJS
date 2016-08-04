@@ -22,6 +22,13 @@ body {
 }
 
 
+.color-button {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
+
 .custom-button {
     width: 20px;
     height: 20px;
@@ -29,43 +36,43 @@ body {
     margin-bottom: 3px;
 }
 
-#color-red {
+#red {
     background-color: red;
 }
 
-#color-green {
+#green {
     background-color: green;
 }
 
-#color-black {
+#black {
     background-color: black;
 }
 
-#color-white {
+#white {
     background-color: white;
 }
 
-#color-gray {
+#gray {
     background-color: gray;
 }
 
-#color-orange {
+#orange {
     background-color: orange;
 }
 
-#color-yellow {
+#yellow {
     background-color: yellow;
 }
 
-#color-blue {
+#blue {
     background-color: blue;
 }
 
-#color-purple {
+#purple {
     background-color: purple; 
 }
 
-#color-pink {
+#pink {
     background-color: pink;
 }
 

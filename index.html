@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,16 +18,17 @@
             <div class="colors" role="group">
                 <b>Colors</b>
                 <br />
-                <button id="color-black" class="custom-button"></button>
-                <button id="color-white" class="custom-button"></button>
-                <button id="color-gray" class="custom-button"></button>
-                <button id="color-red" class="custom-button"></button>
-                <button id="color-blue" class="custom-button"></button>
-                <button id="color-orange" class="custom-button"></button>
-                <button id="color-yellow" class="custom-button"></button>
-                <button id="color-green" class="custom-button"></button>
-                <button id="color-purple" class="custom-button"></button>
-                <button id="color-pink" class="custom-button"></button>
+                <button id="black" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="white" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="gray" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="red" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="blue" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="orange" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="yellow" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="green" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="purple" class="color-button" onClick="setColor(this.id)"></button>
+                <button id="pink" class="color-button" onClick="setColor(this.id)"></button>
+
                 <button id="color-picker" class="jscolor"></button>
             </div>
             <div class="tools">
@@ -48,7 +49,7 @@
             </div>
         </aside>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 
