@@ -2,7 +2,9 @@
 var $wrapper = $('.wrapper'),
     $tools = $('#tools-container'),
     canvas = document.getElementById('canvas'),
-    ctx = canvas.getContext('2d'),
+    tempcanvas = document.getElementById('tempcanvas'),
+    ctx = tempcanvas.getContext('2d'),
+    mainctx = canvas.getContext('2d'),
     color = 'black',
     rectSelect = false,
     circleSelect = false,
@@ -26,17 +28,17 @@ $tools.on('click', '#circle', function (ev) {
     circleSelect = true;
 });
 
-$(canvas).on('mousedown', function (ev) {
+$(tempcanvas).on('mousedown', function (ev) {
     mouseDown = true;
-    var rect = canvas.getBoundingClientRect();
+    var rect = tempcanvas.getBoundingClientRect();
     x1 = ev.clientX - rect.left;
     y1 = ev.clientY - rect.top;
 });
 
-$(canvas).on('mousemove', function (event) {
+$(tempcanvas).on('mousemove', function (event) {
     if (mouseDown) {
         if (rectSelect) {
-            var rect = canvas.getBoundingClientRect(),
+            var rect = tempcanvas.getBoundingClientRect(),
                 endX = event.pageX - rect.left,
                 endY = event.pageY - rect.top,
                 width = endX - x1,
@@ -44,11 +46,11 @@ $(canvas).on('mousemove', function (event) {
             drawRect(x1, y1, width, height, color);
         }
         if (circleSelect) {
-            var rect = canvas.getBoundingClientRect(),
+            var rect = tempcanvas.getBoundingClientRect(),
                 x2 = event.clientX - rect.left,
                 y2 = event.clientY - rect.top;
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, tempcanvas.width, tempcanvas.height);
             drawEllipse(x1, y1, x2, y2, color);
 
             ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
@@ -57,8 +59,10 @@ $(canvas).on('mousemove', function (event) {
     }
 });
 
-$(canvas).on('mouseup', function (ev) {
+$(tempcanvas).on('mouseup', function (ev) {
     mouseDown = false;
+    mainctx.drawImage(tempcanvas, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
 function drawRect(x, y, width, height, color) {

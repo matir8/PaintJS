@@ -3,13 +3,16 @@ body {
     padding: 0px;
 }
 
-#canvas {
+.canvas {
     background-color: white;
     border: 1px solid black;
     display: block;
     margin-left: 150px;
     margin-top: 3px;
     position: absolute;
+}
+#tempcanvas {
+    opacity: 0.2;
 }
 
 #tools-container {
