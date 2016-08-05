@@ -9,6 +9,7 @@ var $wrapper = $('.wrapper'),
     rectSelect = false,
     circleSelect = false,
     pencilSelect = false,
+    brushSelect = false,
     x1,
     y1,
     x2,
@@ -23,21 +24,32 @@ $tools.on('click', '#rectangle', function (ev) {
     rectSelect = true;
     circleSelect = false;
     pencilSelect = false;
-    $(tempcanvas).removeClass('pencil-cursor');
+    brushSelect = false;
+    changeCursirIcon();
 });
 
 $tools.on('click', '#circle', function (ev) {
     rectSelect = false;
     circleSelect = true;
     pencilSelect = false;
-    $(tempcanvas).removeClass('pencil-cursor');
+    brushSelect = false;
+    changeCursirIcon();
 });
 
 $tools.on('click', '#pencil', function (ev) {
     rectSelect = false;
     circleSelect = false;
     pencilSelect = true;
-    $(tempcanvas).addClass('pencil-cursor');
+    brushSelect = false;
+    changeCursirIcon(true, 'pencil-cursor');
+});
+
+$tools.on('click', '#brush', function (ev) {
+    rectSelect = false;
+    circleSelect = false;
+    pencilSelect = false;
+    brushSelect = true;
+    changeCursirIcon(true, 'brush-cursor');
 });
 
 $(tempcanvas).on('mousedown', function (ev) {
@@ -49,34 +61,40 @@ $(tempcanvas).on('mousedown', function (ev) {
 
 $(tempcanvas).on('mousemove', function (event) {
     if (mouseDown) {
+        var rect = tempcanvas.getBoundingClientRect();
+
+        x2 = event.clientX - rect.left;
+        y2 = event.clientY - rect.top;
+
         if (rectSelect) {
-            var rect = tempcanvas.getBoundingClientRect(),
-                endX = event.pageX - rect.left,
-                endY = event.pageY - rect.top,
-                width = endX - x1,
-                height = endY - y1;
+            width = x2 - x1;
+            height = y2 - y1;
+
             drawRect(x1, y1, width, height, color);
         }
         if (circleSelect) {
-            var rect = tempcanvas.getBoundingClientRect(),
-                x2 = event.clientX - rect.left,
-                y2 = event.clientY - rect.top;
-
             ctx.clearRect(0, 0, tempcanvas.width, tempcanvas.height);
             drawEllipse(x1, y1, x2, y2, color);
 
             ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
             ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
         }
-
         if (pencilSelect) {
-            let rect = tempcanvas.getBoundingClientRect(),
-                endX = event.pageX - rect.left,
-                endY = event.pageY - rect.top;
 
-            drawWithPencil(x1, y1, endX, endY, color);
-            x1 = endX;
-            y1 = endY;
+            drawWithPencil(x1, y1, x2, y2, color);
+            x1 = x2;
+            y1 = y2;
+        }
+        if(brushSelect) {
+            ctx.save();
+
+            // Use function for Pencil, but with different lineWidth. 
+            ctx.lineWidth = 5; 
+            drawWithPencil(x1, y1, x2, y2, color);
+            x1 = x2;
+            y1 = y2;
+
+            ctx.restore();
         }
     }
 });
@@ -138,4 +156,13 @@ function drawWithPencil(x1, y1, x2, y2, color) {
     ctx.lineTo(x2, y2);
     ctx.stroke();
 
+}
+
+function changeCursirIcon(hasIcon, className) {
+    $(tempcanvas).removeClass('pencil-cursor');
+    $(tempcanvas).removeClass('brush-cursor');
+
+    if (hasIcon) {
+        $(tempcanvas).addClass(className);
+    }
 }

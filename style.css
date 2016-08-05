@@ -43,6 +43,10 @@ body {
     cursor: url('icons/Pencil-icon.png') 0 15, move;
 }
 
+.brush-cursor {
+    cursor: url('icons/Brush-icon.png') 0 15, move;
+}
+
 #red {
     background-color: red;
 }
