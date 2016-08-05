@@ -10,6 +10,7 @@ var $wrapper = $('.wrapper'),
     circleSelect = false,
     pencilSelect = false,
     brushSelect = false,
+    eraserSelect = false,
     x1,
     y1,
     x2,
@@ -25,6 +26,7 @@ $tools.on('click', '#rectangle', function (ev) {
     circleSelect = false;
     pencilSelect = false;
     brushSelect = false;
+    eraserSelect = false;
     changeCursirIcon();
 });
 
@@ -33,6 +35,7 @@ $tools.on('click', '#circle', function (ev) {
     circleSelect = true;
     pencilSelect = false;
     brushSelect = false;
+    eraserSelect = false;
     changeCursirIcon();
 });
 
@@ -41,6 +44,7 @@ $tools.on('click', '#pencil', function (ev) {
     circleSelect = false;
     pencilSelect = true;
     brushSelect = false;
+    eraserSelect = false;
     changeCursirIcon(true, 'pencil-cursor');
 });
 
@@ -49,7 +53,17 @@ $tools.on('click', '#brush', function (ev) {
     circleSelect = false;
     pencilSelect = false;
     brushSelect = true;
+    eraserSelect = false;
     changeCursirIcon(true, 'brush-cursor');
+});
+
+$tools.on('click', '#eraser', function (ev) {
+    rectSelect = false;
+    circleSelect = false;
+    pencilSelect = false;
+    brushSelect = false;
+    eraserSelect = true;
+    changeCursirIcon(true, 'eraser-cursor');
 });
 
 $(tempcanvas).on('mousedown', function (ev) {
@@ -95,6 +109,11 @@ $(tempcanvas).on('mousemove', function (event) {
             y1 = y2;
 
             ctx.restore();
+        }
+        if (eraserSelect) {
+            eraser(x1, y1);
+            x1 = x2;
+            y1 = y2;
         }
     }
 });
@@ -158,9 +177,17 @@ function drawWithPencil(x1, y1, x2, y2, color) {
 
 }
 
+function eraser(x, y) {
+    const eraserSize = 10;
+    mainctx.beginPath();
+    mainctx.fillStyle = 'white';
+    mainctx.fillRect(x, y, eraserSize, eraserSize);
+}
+
 function changeCursirIcon(hasIcon, className) {
     $(tempcanvas).removeClass('pencil-cursor');
     $(tempcanvas).removeClass('brush-cursor');
+    $(tempcanvas).removeClass('eraser-cursor');
 
     if (hasIcon) {
         $(tempcanvas).addClass(className);

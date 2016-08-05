@@ -47,6 +47,10 @@ body {
     cursor: url('icons/Brush-icon.png') 0 15, move;
 }
 
+.eraser-cursor {
+    cursor: url('icons/Eraser-icon.png') 0 15, move;
+}
+
 #red {
     background-color: red;
 }
