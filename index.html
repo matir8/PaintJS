@@ -13,36 +13,38 @@
 <body>
     <div class="wrapper">
         <div id="canvas-container">
-            <canvas id="canvas" class="canvas" width="800px" height="600px"></canvas>
-            <canvas id="tempcanvas" class="canvas" width="800px" height="600px"></canvas>
+                <label id="header_text">Team 'Demeter' Paint Project</label>
+                <canvas id="canvas" class="canvas" width="800px" height="600px"></canvas>
+                <canvas id="tempcanvas" class="canvas" width="800px" height="600px"></canvas>
         </div>
         <aside id="tools-container">
             <div class="colors" role="group">
-                <b>Colors</b>
+                <label id="Colorlabel" class="tools_words">Colors</label>
                 <br />
-                <button id="black" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="white" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="gray" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="red" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="blue" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="orange" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="yellow" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="green" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="purple" class="color-button" onClick="setColor(this.id)"></button>
-                <button id="pink" class="color-button" onClick="setColor(this.id)"></button>
-
+                <button id="black" class="color-button" onClick="setColor(this.id)" title="Black"></button>
+                <button id="white" class="color-button" onClick="setColor(this.id)" title="White"></button>
+                <button id="gray" class="color-button" onClick="setColor(this.id)" title="Gray"></button>
+                <button id="red" class="color-button" onClick="setColor(this.id)" title="Red"></button>
+                <button id="blue" class="color-button" onClick="setColor(this.id)" title="Blue"></button>
+                <button id="orange" class="color-button" onClick="setColor(this.id)" title="Orange"></button>
+                <button id="yellow" class="color-button" onClick="setColor(this.id)" title="Yellow"></button>
+                <button id="green" class="color-button" onClick="setColor(this.id)" title="Green"></button>
+                <button id="purple" class="color-button" onClick="setColor(this.id)" title="Purple"></button>
+                <button id="pink" class="color-button" onClick="setColor(this.id)" title="Pink"></button>
+                <span id="pickColorLabel">Pick your color!</span>
+                <span id="hashTag">#</span>
                 <input type="text" id="color-picker" class="jscolor" title="Click to open Color-Picker">
+            
             </div>
             <div class="tools">
-                <b>Tools</b>
-                <br />
-                <button id="pencil" class="custom-button" title="Pencil"></button>
+                <label id="Toolslabel" class="tools_words">Tools</label>
+                <button id="pencil" class="custom-button" title="Pencil"></span></button>
                 <button id="eraser" class="custom-button" title="Eraser"></button>
                 <button id="paint" class="custom-button" title="Paint"></button>
                 <button id="brush" class="custom-button" title="Brush"></button>
             </div>
             <div class="shapes">
-                <b>Shapes</b>
+                <label id="Shapeslabel" class="tools_words">Shapes</label>
                 <br />
                 <button id="triangle" class="custom-button" title="Triangle"></button>
                 <button id="circle" class="custom-button" title="Circle"></button>

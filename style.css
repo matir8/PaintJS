@@ -1,44 +1,98 @@
 body {
     margin: 0px;
     padding: 0px;
+    font-family: Copperplate Gothic Light, sans-serif;
+    background: url('icons/background.jpg') repeat;
+}
+.wrapper {
+    max-width: 1300px;
+    margin: 0px auto;
+}
+#header_text {
+    font-size: 35px;
+    position: absolute;
+    left: 680px;
+    top: 22px;
+    font-weight: bold;
+    color: #E8E4D9;
 }
 
 .canvas {
     background-color: white;
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 15px;
     display: block;
-    margin-left: 150px;
-    margin-top: 3px;
+    left: 550px;
+    top: 88px;
     position: absolute;
+
 }
 #tempcanvas {
     opacity: 0.2;
 }
 
 #tools-container {
-    width: 140px;
-    margin: 3px;
-    float: left;
-    background-color: lightgrey;
+    width: 800px;
+    background: url('icons/background_for_tools.png') no-repeat center;
     text-align: center;
     font-size: 20px;
+    top: 700px;
+    right: 200px;
+    left: 552px;
+    position: absolute;
+    border-radius: 10px;
+    height: 150px;
 }
-
-
+#Colorlabel {
+    top: 10px;
+}
+#Toolslabel {
+    top: 35px;
+}
+#Shapeslabel {
+    top: 85px;
+}
+.tools_words {
+    position: absolute;
+    left: 10px;
+    font-weight: bold;
+}
+.colors {
+    position: relative;
+}
+.tools {
+    position: relative;
+}
+.shapes {
+    position: relative;
+}
 .color-button {
-    width: 20px;
-    height: 20px;
-    margin-right: 3px;
-    margin-bottom: 3px;
+    top: 5px;
+    border-radius: 7px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
 }
 
 .custom-button {
-    width: 20px;
-    height: 20px;
-    margin-right: 3px;
-    margin-bottom: 3px;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    border-radius: 7px;
+    top: 85px;
 }
-
+#pickColorLabel {
+    position: absolute;
+    left: 500px;
+    top: 14px;
+    font-weight: bold;
+}
+#hashTag {
+    position: absolute;
+    left: 690px;
+    top: 14px;
+    font-weight: bold;
+}
 .pencil-cursor {
     cursor: url('icons/Pencil-icon.png') 0 15, move;
 }
@@ -53,80 +107,104 @@ body {
 
 #red {
     background-color: red;
+    left: 220px;
 }
 
 #green {
     background-color: green;
+    left: 380px;
 }
 
 #black {
     background-color: black;
+    left: 100px;
 }
 
 #white {
     background-color: white;
+    left: 140px;
 }
 
 #gray {
     background-color: gray;
+    left: 180px;
 }
 
 #orange {
     background-color: orange;
+    left: 300px;
 }
 
 #yellow {
     background-color: yellow;
+    left: 340px;
 }
 
 #blue {
     background-color: blue;
+    left: 260px;
 }
 
 #purple {
-    background-color: purple; 
+    background-color: purple;
+    left: 420px;
 }
 
 #pink {
     background-color: pink;
+    left: 460px;
 }
 
 #color-picker {
-    margin-top: 3px;
-    width: 60px;
+    width: 68px;
+    position: absolute;
+    left: 710px;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2px;
+    top:12px;
 }
-
-
-
 #pencil {
-    background: url('icons/Pencil-icon.png')
+    background: url('icons/Pencil-icon.png');
+    left: 100px;
+    top: 35px;
 }
 
 #paint {
-    background: url('icons/Paint-icon.png')
+    background: url('icons/Paint-icon.png');
+    left: 180px;
+    top: 35px;
 }
 
 #eraser {
-    background: url('icons/Eraser-icon.png')
+    background: url('icons/Eraser-icon.png');
+    left: 140px;
+    top: 35px;
 }
 
 #brush {
-    background: url('icons/Brush-icon.png')
+    background: url('icons/Brush-icon.png');
+    left: 220px;
+    top: 35px;
 }
 
 #circle {
-    background: url('icons/Circle-icon.png')
+    background: url('icons/Circle-icon.png');
+    left: 140px;
 }
 
 #triangle {
     background: url('icons/Triangle-icon.png');
     background-repeat: no-repeat;
+    left: 100px;
 }
 
 #rectangle {
-    background: url('icons/Rectangle-icon.png')
+    background: url('icons/Rectangle-icon.png');
+    left: 220px;
 }
 
 #square {
-    background: url('icons/Square-icon.png')
+    background: url('icons/Square-icon.png');
+    left: 180px;
 }
