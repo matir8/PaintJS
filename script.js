@@ -7,7 +7,7 @@ var $wrapper = $('.wrapper'),
     mainctx = canvas.getContext('2d'),
     color = 'black',
     rectSelect = false,
-	triangleSelect = false,
+    triangleSelect = false,
     circleSelect = false,
     pencilSelect = false,
     brushSelect = false,
@@ -24,7 +24,7 @@ function setColor(id) {
 
 $tools.on('click', '#rectangle', function (ev) {
     rectSelect = true;
-	triangleSelect = false;
+    triangleSelect = false;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = false;
@@ -33,8 +33,8 @@ $tools.on('click', '#rectangle', function (ev) {
 });
 
 $tools.on('click', '#triangle', function (ev) {
-	rectSelect = false;
-	triangleSelect = true;
+    rectSelect = false;
+    triangleSelect = true;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = false;
@@ -44,7 +44,7 @@ $tools.on('click', '#triangle', function (ev) {
 
 $tools.on('click', '#circle', function (ev) {
     rectSelect = false;
-	triangleSelect = false;
+    triangleSelect = false;
     circleSelect = true;
     pencilSelect = false;
     brushSelect = false;
@@ -54,7 +54,7 @@ $tools.on('click', '#circle', function (ev) {
 
 $tools.on('click', '#pencil', function (ev) {
     rectSelect = false;	
-	triangleSelect = false;
+    triangleSelect = false;
     circleSelect = false;
     pencilSelect = true;
     brushSelect = false;
@@ -64,7 +64,7 @@ $tools.on('click', '#pencil', function (ev) {
 
 $tools.on('click', '#brush', function (ev) {
     rectSelect = false;	
-	triangleSelect = false;
+    triangleSelect = false;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = true;
@@ -74,7 +74,7 @@ $tools.on('click', '#brush', function (ev) {
 
 $tools.on('click', '#eraser', function (ev) {
     rectSelect = false;	
-	triangleSelect = false;
+    triangleSelect = false;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = false;
@@ -158,13 +158,13 @@ function drawRect(x, y, width, height, color) {
 }
 
 function drawTriangle (x, y, width, height, color) {
-	ctx.beginPath();
-	ctx.clearRect(0,0, canvas.width, canvas.height);
+    ctx.beginPath();
+    ctx.clearRect(0,0, canvas.width, canvas.height);
     ctx.moveTo(x, y);
     ctx.lineTo(x + width / 2, y + height);
     ctx.lineTo(x - width / 2, y + height);
     ctx.closePath();	
-	ctx.strokeStyle = color;
+    ctx.strokeStyle = color;
     ctx.stroke();
 }
 
@@ -207,7 +207,6 @@ function drawWithPencil(x1, y1, x2, y2, color) {
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.stroke();
-
 }
 
 function eraser(x, y) {
