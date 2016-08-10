@@ -5,15 +5,17 @@ body {
     background: url('icons/header_image.png'), url('icons/background.jpg');
     background-repeat: repeat-x;
 }
+
 .wrapper {
     max-width: 1300px;
     margin: 0px auto;
 }
+
 #header_text {
     font-size: 45px;
     position: absolute;
     left: 600px;
-    top: 870px;
+    top: 800px;
     font-weight: bold;
     color: white;
 }
@@ -24,7 +26,7 @@ body {
     border-radius: 15px;
     display: block;
     left: 550px;
-    top: 88px;
+    top: 20px;
     position: absolute;
 
 }
@@ -37,36 +39,52 @@ body {
     background: url('icons/background_for_tools.png') no-repeat center;
     text-align: center;
     font-size: 20px;
-    top: 700px;
+    top: 630px;
     right: 200px;
     left: 552px;
     position: absolute;
     border-radius: 10px;
     height: 150px;
 }
+
 #Colorlabel {
     top: 10px;
 }
+
 #Toolslabel {
     top: 35px;
 }
+
 #Shapeslabel {
     top: 85px;
 }
+
 .tools_words {
     position: absolute;
     left: 10px;
     font-weight: bold;
 }
+
+.tools_size {
+    position: absolute;
+    left: 380px;
+    top: 60px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .colors {
     position: relative;
 }
+
 .tools {
     position: relative;
 }
+
 .shapes {
     position: relative;
 }
+
 .color-button {
     top: 5px;
     border-radius: 7px;
@@ -81,19 +99,74 @@ body {
     position: absolute;
     border-radius: 7px;
     top: 85px;
+    border: 1px solid #E5E1D6
 }
+
+.size-button {
+    font-family: Copperplate Gothic Light, sans-serif;
+    width: 90px;
+    height: 45px;
+    position: relative;
+    right: 100px;
+    bottom: 35px;
+    border-radius: 7px;
+    font-weight: bold;
+    background-color: #E5E1D6;
+    font-size: 18px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+#small {
+    position: absolute;
+    width: 65px;
+    height: 30px;
+    font-size: 16px;
+    left: 300px;
+}
+
+#small:hover {
+    box-shadow: 8px 8px 5px #888888;
+}
+
+#normal:hover {
+    box-shadow: 8px 8px 5px #888888;
+}
+
+#large:hover {
+    box-shadow: 8px 8px 5px #888888;
+}
+
+#normal {
+    position: absolute;
+    width: 85px;
+    height: 40px;
+    font-size: 16px;
+    left: 380px;
+}
+
+#large {
+     position: absolute;
+    width: 85px;
+    height: 45px;
+    font-size: 16px;
+    left: 480px;
+}
+
 #pickColorLabel {
     position: absolute;
     left: 500px;
     top: 14px;
     font-weight: bold;
 }
+
 #hashTag {
     position: absolute;
     left: 690px;
     top: 14px;
     font-weight: bold;
 }
+
 .pencil-cursor {
     cursor: url('icons/Pencil-icon.png') 0 15, move;
 }
@@ -177,6 +250,7 @@ body {
     padding: 2px;
     top:12px;
 }
+
 #pencil {
     background: url('icons/Pencil-icon.png');
     left: 100px;
@@ -223,26 +297,47 @@ body {
 }
 
 .save-reset {
-    float: right;
-    margin-top: 70px;
-    margin-right: 10px;
+    position: relative;
     
 }
 
 #save {
-    font-size: 24px;
-    font-family: Copperplate Gothic Light, sans-serif;
-    font-weight: bold;
-    background-color: yellowgreen;
-    border-radius: 10px;
+    background-image: url('icons/Save-icon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 30px;
+    right: 100px;
+    border-radius: 13px;
 }
 
-#reset {
-    font-size: 24px;
+#save:hover {
+    box-shadow: 8px 8px 5px #888888;
+}
+
+#reset-label {
+    color: white;
+}
+
+#reset {    
+    font-size: 14px;
     font-family: Copperplate Gothic Light, sans-serif;
-    font-weight: bold;
-    background-color: yellowgreen;
-        border-radius: 10px;
+    font-weight: bolder;
+    background-color: red;
+    border-radius: 300px;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#reset:hover {
+    box-shadow: 8px 8px 5px #888888;
 }
 
 #cropImageLink {
