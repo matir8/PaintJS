@@ -105,6 +105,18 @@ body {
     cursor: url('icons/Eraser-icon.png') 0 15, move;
 }
 
+.color-button:hover {
+	cursor: pointer;
+}
+
+.custom-button:hover {
+	cursor: pointer;
+}
+
+#color-picker:hover {
+	cursor: pointer;
+}
+
 #red {
     background-color: red;
     left: 220px;
