@@ -2,7 +2,8 @@ body {
     margin: 0px;
     padding: 0px;
     font-family: Copperplate Gothic Light, sans-serif;
-    background: url('icons/background.jpg') repeat;
+    background: url('icons/header_image.png'), url('icons/background.jpg');
+    background-repeat: repeat-x;
 }
 .wrapper {
     max-width: 1300px;
