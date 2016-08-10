@@ -10,12 +10,12 @@ body {
     margin: 0px auto;
 }
 #header_text {
-    font-size: 35px;
+    font-size: 45px;
     position: absolute;
-    left: 680px;
-    top: 22px;
+    left: 600px;
+    top: 870px;
     font-weight: bold;
-    color: #E8E4D9;
+    color: white;
 }
 
 .canvas {
