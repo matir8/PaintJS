@@ -5,10 +5,12 @@ body {
     background: url('icons/header_image.png'), url('icons/background.jpg');
     background-repeat: repeat-x;
 }
+
 .wrapper {
     max-width: 1300px;
     margin: 0px auto;
 }
+
 #header_text {
     font-size: 45px;
     position: absolute;
@@ -44,29 +46,49 @@ body {
     border-radius: 10px;
     height: 150px;
 }
+
 #Colorlabel {
     top: 10px;
 }
+
 #Toolslabel {
     top: 35px;
 }
+
 #Shapeslabel {
     top: 85px;
 }
+
+#sizelabel {
+    margin-top: 200px;
+}
+
 .tools_words {
     position: absolute;
     left: 10px;
     font-weight: bold;
 }
+
+.tools_size {
+    position: absolute;
+    left: 380px;
+    top: 60px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
 .colors {
     position: relative;
 }
+
 .tools {
     position: relative;
 }
+
 .shapes {
     position: relative;
 }
+
 .color-button {
     top: 5px;
     border-radius: 7px;
@@ -82,18 +104,33 @@ body {
     border-radius: 7px;
     top: 85px;
 }
+
+.size-button {
+    font-family: Copperplate Gothic Light, sans-serif;
+    width: 90px;
+    height: 45px;
+    position:initial;
+    margin-top: 30px;
+    border-radius: 7px;
+    font-weight: bold;
+    background-color: #E5E1D6;
+    font-size: 18px;
+}
+
 #pickColorLabel {
     position: absolute;
     left: 500px;
     top: 14px;
     font-weight: bold;
 }
+
 #hashTag {
     position: absolute;
     left: 690px;
     top: 14px;
     font-weight: bold;
 }
+
 .pencil-cursor {
     cursor: url('icons/Pencil-icon.png') 0 15, move;
 }
@@ -177,6 +214,7 @@ body {
     padding: 2px;
     top:12px;
 }
+
 #pencil {
     background: url('icons/Pencil-icon.png');
     left: 100px;
