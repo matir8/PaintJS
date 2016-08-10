@@ -12,6 +12,7 @@ var $wrapper = $('.wrapper'),
     pencilSelect = false,
     brushSelect = false,
     eraserSelect = false,
+    lineSelect = false,
     x1,
     y1,
     x2,
@@ -29,6 +30,7 @@ $tools.on('click', '#rectangle', function (ev) {
     pencilSelect = false;
     brushSelect = false;
     eraserSelect = false;
+    lineSelect = false;
     changeCursirIcon();
 });
 
@@ -39,6 +41,7 @@ $tools.on('click', '#triangle', function (ev) {
     pencilSelect = false;
     brushSelect = false;
     eraserSelect = false;
+    lineSelect = false;
     changeCursirIcon();
 });
 
@@ -49,37 +52,52 @@ $tools.on('click', '#circle', function (ev) {
     pencilSelect = false;
     brushSelect = false;
     eraserSelect = false;
+    lineSelect = false;
     changeCursirIcon();
 });
 
 $tools.on('click', '#pencil', function (ev) {
-    rectSelect = false;	
+    rectSelect = false;
     triangleSelect = false;
     circleSelect = false;
     pencilSelect = true;
     brushSelect = false;
     eraserSelect = false;
+    lineSelect = false;
     changeCursirIcon(true, 'pencil-cursor');
 });
 
 $tools.on('click', '#brush', function (ev) {
-    rectSelect = false;	
+    rectSelect = false;
     triangleSelect = false;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = true;
     eraserSelect = false;
+    lineSelect = false;
     changeCursirIcon(true, 'brush-cursor');
 });
 
 $tools.on('click', '#eraser', function (ev) {
-    rectSelect = false;	
+    rectSelect = false;
     triangleSelect = false;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = false;
     eraserSelect = true;
+    lineSelect = false;
     changeCursirIcon(true, 'eraser-cursor');
+});
+
+$tools.on('click', '#line', function (ev) {
+    rectSelect = false;
+    triangleSelect = false;
+    circleSelect = false;
+    pencilSelect = false;
+    brushSelect = false;
+    eraserSelect = false;
+    lineSelect = true;
+    changeCursirIcon();
 });
 
 $(tempcanvas).on('mousedown', function (ev) {
@@ -115,11 +133,11 @@ $(tempcanvas).on('mousemove', function (event) {
             x1 = x2;
             y1 = y2;
         }
-        if(brushSelect) {
+        if (brushSelect) {
             ctx.save();
 
             // Use function for Pencil, but with different lineWidth. 
-            ctx.lineWidth = 5; 
+            ctx.lineWidth = 5;
             drawWithPencil(x1, y1, x2, y2, color);
             x1 = x2;
             y1 = y2;
@@ -131,12 +149,18 @@ $(tempcanvas).on('mousemove', function (event) {
             x1 = x2;
             y1 = y2;
         }
-		if (triangleSelect) {		
-			width = x2 - x1;
+        if (triangleSelect) {
+            width = x2 - x1;
             height = y2 - y1;
-			
-			drawTriangle(x1, y1, width, height, color);
-		}
+
+            drawTriangle(x1, y1, width, height, color);
+        }
+        if (lineSelect) {
+            ctx.clearRect(0, 0, tempcanvas.width, tempcanvas.height);
+            drawLine(x1, y1, x2, y2, color);
+
+        }
+
     }
 });
 
@@ -157,25 +181,33 @@ function drawRect(x, y, width, height, color) {
     ctx.strokeRect(x, y, width, height);
 }
 
-function drawTriangle (x, y, width, height, color) {
+function drawTriangle(x, y, width, height, color) {
     ctx.beginPath();
-    ctx.clearRect(0,0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.moveTo(x, y);
     ctx.lineTo(x + width / 2, y + height);
     ctx.lineTo(x - width / 2, y + height);
-    ctx.closePath();	
+    ctx.closePath();
     ctx.strokeStyle = color;
     ctx.stroke();
 }
 
-$('#color-picker').on('change', function () { 
+function drawLine(x1, y1, x2, y2, color) {
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = color;
+    ctx.stroke();
+}
+
+$('#color-picker').on('change', function () {
     let $this = $(this),
         value = $this.val();
-        color = '#' + value;
-    
+    color = '#' + value;
+
     $this.val(color);
 
- });
+});
 
 function drawEllipse(x1, y1, x2, y2, color) {
     var radiusX = (x2 - x1) * 0.5,
