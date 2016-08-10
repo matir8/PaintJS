@@ -7,6 +7,7 @@ var $wrapper = $('.wrapper'),
     mainctx = canvas.getContext('2d'),
     color = 'black',
     rectSelect = false,
+	triangleSelect = false,
     circleSelect = false,
     pencilSelect = false,
     brushSelect = false,
@@ -23,6 +24,17 @@ function setColor(id) {
 
 $tools.on('click', '#rectangle', function (ev) {
     rectSelect = true;
+	triangleSelect = false;
+    circleSelect = false;
+    pencilSelect = false;
+    brushSelect = false;
+    eraserSelect = false;
+    changeCursirIcon();
+});
+
+$tools.on('click', '#triangle', function (ev) {
+	rectSelect = false;
+	triangleSelect = true;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = false;
@@ -32,6 +44,7 @@ $tools.on('click', '#rectangle', function (ev) {
 
 $tools.on('click', '#circle', function (ev) {
     rectSelect = false;
+	triangleSelect = false;
     circleSelect = true;
     pencilSelect = false;
     brushSelect = false;
@@ -40,7 +53,8 @@ $tools.on('click', '#circle', function (ev) {
 });
 
 $tools.on('click', '#pencil', function (ev) {
-    rectSelect = false;
+    rectSelect = false;	
+	triangleSelect = false;
     circleSelect = false;
     pencilSelect = true;
     brushSelect = false;
@@ -49,7 +63,8 @@ $tools.on('click', '#pencil', function (ev) {
 });
 
 $tools.on('click', '#brush', function (ev) {
-    rectSelect = false;
+    rectSelect = false;	
+	triangleSelect = false;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = true;
@@ -58,7 +73,8 @@ $tools.on('click', '#brush', function (ev) {
 });
 
 $tools.on('click', '#eraser', function (ev) {
-    rectSelect = false;
+    rectSelect = false;	
+	triangleSelect = false;
     circleSelect = false;
     pencilSelect = false;
     brushSelect = false;
@@ -115,6 +131,12 @@ $(tempcanvas).on('mousemove', function (event) {
             x1 = x2;
             y1 = y2;
         }
+		if (triangleSelect) {		
+			width = x2 - x1;
+            height = y2 - y1;
+			
+			drawTriangle(x1, y1, width, height, color);
+		}
     }
 });
 
@@ -133,6 +155,17 @@ function drawRect(x, y, width, height, color) {
     ctx.beginPath();
 
     ctx.strokeRect(x, y, width, height);
+}
+
+function drawTriangle (x, y, width, height, color) {
+	ctx.beginPath();
+	ctx.clearRect(0,0, canvas.width, canvas.height);
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + width / 2, y + height);
+    ctx.lineTo(x - width / 2, y + height);
+    ctx.closePath();	
+	ctx.strokeStyle = color;
+    ctx.stroke();
 }
 
 $('#color-picker').on('change', function () { 
