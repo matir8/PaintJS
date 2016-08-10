@@ -257,3 +257,15 @@ function changeCursirIcon(hasIcon, className) {
         $(tempcanvas).addClass(className);
     }
 }
+
+
+$('cropImageLink').on('click', function (ev) { 
+    var link = $(this);
+    link.attr('download', "MyCanvas.png");
+    link.attr('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+ });
+
+/*var link = document.getElementById('cropImageLink');
+link.setAttribute('download', 'MintyPaper.png');
+link.setAttribute('href', canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+link.click();*/

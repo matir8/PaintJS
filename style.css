@@ -221,3 +221,31 @@ body {
     background: url('icons/Line-icon.png');
     left: 180px;
 }
+
+.save-reset {
+    float: right;
+    margin-top: 70px;
+    margin-right: 10px;
+    
+}
+
+#save {
+    font-size: 24px;
+    font-family: Copperplate Gothic Light, sans-serif;
+    font-weight: bold;
+    background-color: yellowgreen;
+    border-radius: 10px;
+}
+
+#reset {
+    font-size: 24px;
+    font-family: Copperplate Gothic Light, sans-serif;
+    font-weight: bold;
+    background-color: yellowgreen;
+        border-radius: 10px;
+}
+
+#cropImageLink {
+    text-decoration: none;
+    color: black;
+}
