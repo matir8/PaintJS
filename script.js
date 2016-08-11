@@ -17,7 +17,8 @@ var $wrapper = $('.wrapper'),
     y1,
     x2,
     y2,
-    mouseDown = false;
+    mouseDown = false,
+    clicked = false;
 
 function setColor(id) {
     color = id;
@@ -257,3 +258,16 @@ function changeCursirIcon(hasIcon, className) {
         $(tempcanvas).addClass(className);
     }
 }
+
+$('#reset').on('click', function () {
+    mainctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+$('#save').on('click', function () {
+    var canvas = document.getElementById('canvas'),
+        image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"),
+        link = document.getElementById('downloadLink');
+        
+        link.setAttribute('href', image);
+        link.click();
+});
