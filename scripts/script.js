@@ -1,4 +1,4 @@
-/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 var $wrapper = $('.wrapper'),
     $tools = $('#tools-container'),
     canvas = document.getElementById('canvas'),
@@ -20,9 +20,10 @@ var $wrapper = $('.wrapper'),
     mouseDown = false,
     lineWidth = 3;
 
-function setColor(id) {
-    color = id;
+function setColor(ev) {
+    color = ev.target.id;
 }
+$('.color-button').on('click', setColor);
 
 $tools.on('click', '#rectangle', function (ev) {
     rectSelect = true;
@@ -172,7 +173,7 @@ $(tempcanvas).on('mouseup', function (ev) {
 
 
 $('#color-picker').on('change', function () {
-    let $this = $(this),
+    var $this = $(this),
         value = $this.val();
     color = '#' + value;
 
