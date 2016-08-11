@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,13 +13,13 @@
 <body>
     <div class="wrapper">
         <div id="canvas-container">
-                <label id="header_text">Team 'Demeter' Paint Project</label>
+                <label id="header-text">Team 'Demeter' Paint Project</label>
                 <canvas id="canvas" class="canvas" width="800px" height="600px"></canvas>
                 <canvas id="tempcanvas" class="canvas" width="800px" height="600px"></canvas>
         </div>
         <aside id="tools-container">
             <div class="colors" role="group">
-                <label id="Colorlabel" class="tools_words">Colors</label>
+                <label id="color-label" class="tools-words">Colors</label>
                 <br />
                 <button id="black" class="color-button" onClick="setColor(this.id)" title="Black"></button>
                 <button id="white" class="color-button" onClick="setColor(this.id)" title="White"></button>
@@ -31,45 +31,38 @@
                 <button id="green" class="color-button" onClick="setColor(this.id)" title="Green"></button>
                 <button id="purple" class="color-button" onClick="setColor(this.id)" title="Purple"></button>
                 <button id="pink" class="color-button" onClick="setColor(this.id)" title="Pink"></button>
-                <span id="pickColorLabel">Pick your color!</span>
-                <span id="hashTag">#</span>
-                <input type="text" id="color-picker" class="jscolor" title="Click to open Color-Picker">
-            
+                <span id="colorpick-label">Pick your color!</span>
+                <span id="hashtag">#</span>
+                <input type="text" id="color-picker" class="jscolor" title="Click to open Color-Picker">     
             </div>
             <div class="tools">
-                <label id="Toolslabel" class="tools_words">Tools</label>
+                <label id="tools-label" class="tools-words">Tools</label>
                 <button id="pencil" class="custom-button" title="Pencil"></span></button>
                 <button id="eraser" class="custom-button" title="Eraser"></button>
                 <button id="paint" class="custom-button" title="Paint"></button>
                 <button id="brush" class="custom-button" title="Brush"></button>
             </div>
             <div class="shapes">
-                <label id="Shapeslabel" class="tools_words">Shapes</label>
+                <label id="shapes-label" class="tools-words">Shapes</label>
                 <br />
                 <button id="triangle" class="custom-button" title="Triangle"></button>
                 <button id="circle" class="custom-button" title="Circle"></button>
                 <button id="line" class="custom-button" title="Line"></button>
                 <button id="rectangle" class="custom-button" title="Rectangle"></button>
-            </div>
-
-            
+            </div> 
             <div class="save-reset">
                 <input type="file" id="file-upload" value="">
-                <button id="save" title="Save"><a id="downloadLink" href="#" download="MyCanvasImage.png"></a></button>
+                <button id="save" title="Save"><a id="download-link" href="#" download="MyCanvasImage.png"></a></button>
                 <button id="reset" title="Reset"><label id="reset-label" for="reset">Clear</label></button>
             </div>
-
-            <div class="size">
-                
+            <div class="size">              
                 <br />
                 <button id="small" class="size-button" title="Small">Small</button>
                 <button id="normal" class="size-button" title="Normal">Normal</button>
-                <button id="large" class="size-button" title="Large">Large</button>
-            
+                <button id="large" class="size-button" title="Large">Large</button>        
         </aside>
     </div>
     <script src="./scripts/drawingFunctions.js"></script>
     <script src="./scripts/script.js"></script>
 </body>
-
 </html>
