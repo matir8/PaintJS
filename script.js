@@ -18,7 +18,7 @@ var $wrapper = $('.wrapper'),
     x2,
     y2,
     mouseDown = false,
-    clicked = false;
+    lineWidth = 3;
 
 function setColor(id) {
     color = id;
@@ -119,27 +119,25 @@ $(tempcanvas).on('mousemove', function (event) {
             width = x2 - x1;
             height = y2 - y1;
 
-            drawRect(x1, y1, width, height, color);
+            drawRect(x1, y1, width, height, color, lineWidth);
         }
         if (circleSelect) {
             ctx.clearRect(0, 0, tempcanvas.width, tempcanvas.height);
-            drawEllipse(x1, y1, x2, y2, color);
+            drawEllipse(x1, y1, x2, y2, color, lineWidth);
 
             ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
             ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
         }
         if (pencilSelect) {
 
-            drawWithPencil(x1, y1, x2, y2, color);
+            drawWithPencil(x1, y1, x2, y2, color, lineWidth);
             x1 = x2;
             y1 = y2;
         }
         if (brushSelect) {
             ctx.save();
 
-            // Use function for Pencil, but with different lineWidth. 
-            ctx.lineWidth = 5;
-            drawWithPencil(x1, y1, x2, y2, color);
+            drawWithPencil(x1, y1, x2, y2, color, (lineWidth + 2));
             x1 = x2;
             y1 = y2;
 
@@ -154,11 +152,11 @@ $(tempcanvas).on('mousemove', function (event) {
             width = x2 - x1;
             height = y2 - y1;
 
-            drawTriangle(x1, y1, width, height, color);
+            drawTriangle(x1, y1, width, height, color, lineWidth);
         }
         if (lineSelect) {
             ctx.clearRect(0, 0, tempcanvas.width, tempcanvas.height);
-            drawLine(x1, y1, x2, y2, color);
+            drawLine(x1, y1, x2, y2, color, lineWidth);
 
         }
 
@@ -171,18 +169,19 @@ $(tempcanvas).on('mouseup', function (ev) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
-function drawRect(x, y, width, height, color) {
+function drawRect(x, y, width, height, color, lineWidth) {
     var canvasWidth = canvas.width,
         canvasHeight = canvas.height;
 
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
     ctx.beginPath();
 
     ctx.strokeRect(x, y, width, height);
 }
 
-function drawTriangle(x, y, width, height, color) {
+function drawTriangle(x, y, width, height, color, lineWidth) {
     ctx.beginPath();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.moveTo(x, y);
@@ -190,14 +189,16 @@ function drawTriangle(x, y, width, height, color) {
     ctx.lineTo(x - width / 2, y + height);
     ctx.closePath();
     ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
     ctx.stroke();
 }
 
-function drawLine(x1, y1, x2, y2, color) {
+function drawLine(x1, y1, x2, y2, color, lineWidth) {
     ctx.beginPath();
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
     ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
     ctx.stroke();
 }
 
@@ -210,7 +211,7 @@ $('#color-picker').on('change', function () {
 
 });
 
-function drawEllipse(x1, y1, x2, y2, color) {
+function drawEllipse(x1, y1, x2, y2, color, lineWidth) {
     var radiusX = (x2 - x1) * 0.5,
         radiusY = (y2 - y1) * 0.5,
         centerX = x1 + radiusX,
@@ -230,12 +231,14 @@ function drawEllipse(x1, y1, x2, y2, color) {
 
     ctx.closePath();
     ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
     ctx.stroke();
 }
 
-function drawWithPencil(x1, y1, x2, y2, color) {
+function drawWithPencil(x1, y1, x2, y2, color, lineWidth) {
     ctx.beginPath();
     ctx.strokeStyle = color;
+    ctx.lineWidth = lineWidth;
 
     ctx.moveTo(x1, y1);
     ctx.lineTo(x2, y2);
@@ -272,3 +275,21 @@ $('#save').on('click', function () {
         link.setAttribute('href', image);
         link.click();
 });
+
+$('#small').on('click', function () { 
+    lineWidth = 2;
+    console.log('small');
+    console.log(lineWidth);
+ });
+
+ $('#normal').on('click', function () { 
+    lineWidth = 5;
+    console.log('normal');
+    console.log(lineWidth);
+ });
+
+ $('#large').on('click', function () { 
+    lineWidth = 8;
+    console.log('large');
+    console.log(lineWidth);
+ });
