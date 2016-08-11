@@ -127,14 +127,17 @@ body {
 
 #small:hover {
     box-shadow: 8px 8px 5px #888888;
+	cursor: pointer;
 }
 
 #normal:hover {
     box-shadow: 8px 8px 5px #888888;
+	cursor: pointer;
 }
 
 #large:hover {
     box-shadow: 8px 8px 5px #888888;
+	cursor: pointer;
 }
 
 #normal {
@@ -315,6 +318,7 @@ body {
 
 #save:hover {
     box-shadow: 8px 8px 5px #888888;
+	cursor: pointer;
 }
 
 #reset-label {
@@ -338,6 +342,7 @@ body {
 
 #reset:hover {
     box-shadow: 8px 8px 5px #888888;
+	cursor: pointer;
 }
 
 #cropImageLink {
