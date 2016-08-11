@@ -11,7 +11,7 @@ body {
     margin: 0px auto;
 }
 
-#header_text {
+#header-text {
     font-size: 45px;
     position: absolute;
     left: 600px;
@@ -47,19 +47,19 @@ body {
     height: 150px;
 }
 
-#Colorlabel {
+#color-label {
     top: 10px;
 }
 
-#Toolslabel {
+#tools-label {
     top: 35px;
 }
 
-#Shapeslabel {
+#shapes-label {
     top: 85px;
 }
 
-.tools_words {
+.tools-words {
     position: absolute;
     left: 10px;
     font-weight: bold;
@@ -156,14 +156,14 @@ body {
     left: 480px;
 }
 
-#pickColorLabel {
+#colorpick-label {
     position: absolute;
     left: 500px;
     top: 14px;
     font-weight: bold;
 }
 
-#hashTag {
+#hashtag {
     position: absolute;
     left: 690px;
     top: 14px;
@@ -343,11 +343,6 @@ body {
 #reset:hover {
     box-shadow: 8px 8px 5px #888888;
 	cursor: pointer;
-}
-
-#cropImageLink {
-    text-decoration: none;
-    color: black;
 }
 
 #file-upload {
