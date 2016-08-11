@@ -260,6 +260,7 @@ function changeCursirIcon(hasIcon, className) {
 }
 
 $('#reset').on('click', function () {
+    console.log('reset clicked');
     mainctx.clearRect(0, 0, canvas.width, canvas.height);
 });
 
