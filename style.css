@@ -171,15 +171,15 @@ body {
 }
 
 .pencil-cursor {
-    cursor: url('icons/Pencil-icon.png') 0 15, move;
+    cursor: url('icons/Pencil-icon.png') 0 30, move;
 }
 
 .brush-cursor {
-    cursor: url('icons/Brush-icon.png') 0 15, move;
+    cursor: url('icons/Brush-icon.png') 0 30, move;
 }
 
 .eraser-cursor {
-    cursor: url('icons/Eraser-icon.png') 0 15, move;
+    cursor: url('icons/Eraser-icon.png') 0 30, move;
 }
 
 .color-button:hover {
@@ -348,4 +348,11 @@ body {
 #cropImageLink {
     text-decoration: none;
     color: black;
+}
+
+#file-upload {
+    position: absolute;
+    right: 40px;
+    width: 130px;
+    font-size: 16px;
 }

@@ -259,6 +259,19 @@ function changeCursirIcon(hasIcon, className) {
     }
 }
 
+function drawImg() {
+    var img = new Image(),
+        f = document.getElementById("file-upload").files[0],
+        url = window.URL || window.webkitURL,
+        src = url.createObjectURL(f);
+
+    img.src = src;
+    img.onload = function() {
+        mainctx.drawImage(img, 0, 0);
+        url.revokeObjectURL(src);
+    };
+}
+
 $('#reset').on('click', function () {
     console.log('reset clicked');
     mainctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -272,3 +285,5 @@ $('#save').on('click', function () {
         link.setAttribute('href', image);
         link.click();
 });
+
+$('#file-upload').on('change', drawImg);
