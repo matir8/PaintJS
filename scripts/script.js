@@ -201,7 +201,7 @@ $('#reset').on('click', function () {
 $('#save').on('click', function () {
     var canvas = document.getElementById('canvas'),
         image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream"),
-        link = document.getElementById('downloadLink');
+        link = document.getElementById('download-link');
 
     link.setAttribute('href', image);
     link.click();
